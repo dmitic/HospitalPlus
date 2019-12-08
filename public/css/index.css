@@ -1,0 +1,60 @@
+/*  reset styles */
+html{ width:100%; height:100%; }
+body{ width:100%; height:100%; }
+html, body{  margin:0; padding:0; scroll-behavior: smooth;  }
+body *{ margin:0; padding:0; box-sizing:border-box; }
+a{ text-decoration:none; }
+ol, ul{ list-style-type:none; }
+
+.container-fluid{
+    background-color: rgba(236, 235, 241, 0.95);
+}
+
+.header{
+    height: 15vh;
+}
+.logo img{
+    height: 14vh;
+    width: auto;
+}
+.adr-wt{
+    color:black !important;
+    font-weight: bold;
+}
+span#time_of_6_1870626152{
+    color:black !important;
+}
+
+.landing{
+    background-image: url("../images/hospital5b.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;		
+    height: 85vh;
+}
+.bg-light{
+    background-color: rgba(236, 235, 241, 0.3)  !important;
+    text-shadow: 2px 2px 2px rgb(56, 56, 56)
+}
+.form-title{
+    font-size: x-large;
+}
+
+
+@media(max-width: 1200px){
+    .header{
+        height: 20vh;
+    }
+}
+@media(max-width: 1000px){
+    .header{
+        height: 33vh;
+    }
+    .logo img{
+        height: 18vh;
+    }
+}
+@media(max-width: 580px){
+    .header{
+        height: 54vh;
+    }
+}
