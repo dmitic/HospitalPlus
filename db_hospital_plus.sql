@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2019 at 12:47 AM
+-- Generation Time: Dec 09, 2019 at 04:05 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -91,7 +91,7 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `kartoni` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `broj_kartona` int(11) NOT NULL,
+  `broj_kartona` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pacijent_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -102,7 +102,7 @@ CREATE TABLE `kartoni` (
 --
 
 INSERT INTO `kartoni` (`id`, `broj_kartona`, `pacijent_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, NULL, NULL);
+(1, '1', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -240,9 +240,10 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `ime`, `prezime`, `telefon`, `email`, `username`, `password`, `uloga_id`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Pera', 'Kojot', '123', 'pera@kojot.com', 'pera', '123123', 2, NULL, NULL, NULL, NULL),
 (2, 'Đura', 'Đurić', '123123', 'djura@djura.com', 'djura', '$2y$10$9IlfZpfXXWDiGzMSbr6UNu7oCcDL8QpTlqJj5vYayRujNCGJnwLhm', 1, NULL, NULL, '2019-12-04 21:56:09', '2019-12-04 21:56:09'),
-(3, 'Laza', 'Lazić', '123123', 'laza@djura.com', 'laza', '$2y$10$CilIfzFx5WcVbHtnaDrs/OaWmwcQX2Wi4WdYDQDN6ptZMetDJ6/f2', 1, NULL, NULL, '2019-12-04 21:57:43', '2019-12-04 21:57:43'),
-(4, 'Olja', 'Samardzic', '123123123', 'olja@olja.com', 'oljaa', '$2y$10$MCuzAyWjFB/cn6OxCAl/tePujgZveYzuKuxOsJJCgTOyCSgVB08C6', 1, NULL, 'fL56NSFQ4SiZRHRh1THwvMF2yseL4orRO9bW8owfrRefbbTbRzCH7LrvKMoL', '2019-12-04 22:00:17', '2019-12-04 22:00:17'),
-(5, 'qwe', 'qwe', '123', 'qwe@qwe.com', 'qawe', '$2y$10$a8ScLR.PcTh7zRNeVU4d5.hsbbPE1XhulD9WkAKI7QdJKaDXhD0Vi', 1, NULL, NULL, '2019-12-04 22:13:05', '2019-12-04 22:13:05');
+(3, 'Laza', 'Lazić', '123123', 'laza@laza.com', 'laza', '$2y$10$2oxlm3HFvdBzXP/FuxNfu.lTLh1NQ5lljZn.nxWfyj/Lnc9vFIP1W', 1, NULL, NULL, '2019-12-04 21:57:43', '2019-12-04 21:57:43'),
+(4, 'Olja', 'Samardzic', '123123123', 'olja@olja.com', 'oljaa', '$2y$10$2oxlm3HFvdBzXP/FuxNfu.lTLh1NQ5lljZn.nxWfyj/Lnc9vFIP1W', 2, NULL, 'L1GVAn9Xaw86adbYRpjqkeMLXpLbcm1NJRsbYSpc7SmqNJdZ4dDyiktyQpmY', '2019-12-04 22:00:17', '2019-12-08 13:42:17'),
+(5, 'qwe', 'qwe', '123', 'qwe@qwe.com', 'qawe', '$2y$10$2oxlm3HFvdBzXP/FuxNfu.lTLh1NQ5lljZn.nxWfyj/Lnc9vFIP1W', 3, NULL, NULL, '2019-12-04 22:13:05', '2019-12-04 22:13:05'),
+(6, 'asdasd', 'asdasd', '123123', 'dmitic@gmail.com', 'asd', '$2y$10$4qnQXVfFArnH9vA8.cMi7Oswa6TxxVqLOymOZ4QMZIvLoPHqmtKCq', 1, NULL, NULL, '2019-12-08 21:16:34', '2019-12-08 21:16:34');
 
 --
 -- Indexes for dumped tables
@@ -372,7 +373,7 @@ ALTER TABLE `uloge`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

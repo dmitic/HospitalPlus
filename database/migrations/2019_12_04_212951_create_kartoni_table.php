@@ -15,7 +15,7 @@ class CreateKartoniTable extends Migration
     {
         Schema::create('kartoni', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('broj_kartona');
+            $table->string('broj_kartona', 20);
             $table->unsignedBigInteger('pacijent_id');
             $table->timestamps();
 

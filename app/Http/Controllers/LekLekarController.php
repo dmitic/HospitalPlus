@@ -5,17 +5,17 @@ namespace App\Http\Controllers;
 use App\Lek;
 use Illuminate\Http\Request;
 
-class LekController extends Controller
+class LekLekarController extends Controller
 {
     public function index()
     {
         $lekovi = Lek::orderBy('naziv')->paginate(10);
-        return view('sestra.lekovi', compact('lekovi'));
+        return view('lekar.lekovi', compact('lekovi'));
     }
 
     public function create()
     {
-        return view('sestra.dodajLek');
+        return view('lekar.dodajLek');
     }
 
     public function store(Request $request)
@@ -30,7 +30,7 @@ class LekController extends Controller
         $lek->kolicina = $request->kolicina;
         $lek->save();
 
-        return redirect('/sestra/lekovi')->withErrors(['poruka' => 'Lek je uspešno unet!']);
+        return redirect('/lekar/lekovi')->withErrors(['poruka' => 'Lek je uspešno unet!']);
     }
 
     public function show(Lek $lek)
@@ -40,7 +40,7 @@ class LekController extends Controller
 
     public function edit(Lek $lek)
     {
-        return view('sestra.dodajLek', compact('lek'));
+        return view('lekar.dodajLek', compact('lek'));
     }
 
     public function update(Request $request, Lek $lek)
@@ -55,13 +55,13 @@ class LekController extends Controller
             'kolicina' => request()->kolicina,
         ]);
 
-        return redirect('/sestra/lekovi')->withErrors(['poruka' => 'Podaci o leku su uspešno izmenjeni!']);
+        return redirect('/lekar/lekovi')->withErrors(['poruka' => 'Podaci o leku su uspešno izmenjeni!']);
     }
 
     public function destroy(Lek $lek)
     {
         $lek->delete();
-        return redirect('/sestra/lekovi')
+        return redirect('/lekar/lekovi')
                     ->withErrors(['poruka' => 'Lek je obrisan!']);
     }
 
@@ -72,6 +72,6 @@ class LekController extends Controller
             ->orderBy('naziv')
             ->paginate(10);
 
-        return view('sestra.lekovi', compact('lekovi'));
+        return view('lekar.lekovi', compact('lekovi'));
     }
 }

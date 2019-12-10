@@ -23,7 +23,7 @@ class CreatePacijentiTable extends Migration
             $table->string('pol', 1);
             $table->date('datum_rodjenja');
             $table->string('krvna_grupa', 3);
-            $table->integer('lbo');
+            $table->bigInteger('lbo');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 

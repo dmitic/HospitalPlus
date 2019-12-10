@@ -22,8 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('username', 50);
             $table->string('password');
             $table->unsignedBigInteger('uloga_id')->default(2);
-            $table->timestamp('email_verified_at')->nullable();
-            $table->rememberToken();
+            // $table->timestamp('email_verified_at')->nullable();
+            // $table->rememberToken();
             $table->timestamps();
 
             $table->foreign('uloga_id')

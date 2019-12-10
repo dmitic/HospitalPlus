@@ -5,17 +5,17 @@ namespace App\Http\Controllers;
 use App\Bolest;
 use Illuminate\Http\Request;
 
-class BolestController extends Controller
+class BolestLekarController extends Controller
 {
     public function index()
     {
         $bolesti = Bolest::orderBy('sifra_bolesti')->paginate(10);
-        return view('sestra.bolesti', compact('bolesti'));
+        return view('lekar.bolesti', compact('bolesti'));
     }
 
     public function create()
     {
-        return view('sestra.dodajBolest');
+        return view('lekar.dodajBolest');
     }
 
     public function store(Request $request)
@@ -30,7 +30,7 @@ class BolestController extends Controller
         $bolest->sifra_bolesti = $request->sifra_bolesti;
         $bolest->save();
 
-        return redirect('/sestra/bolesti')->withErrors(['poruka' => 'Bolest je uspešno uneta!']);
+        return redirect('/lekar/bolesti')->withErrors(['poruka' => 'Bolest je uspešno uneta!']);
     }
 
     public function show(Bolest $bolest)
@@ -40,7 +40,7 @@ class BolestController extends Controller
 
     public function edit(Bolest $bolest)
     {
-        return view('sestra.dodajBolest', compact('bolest'));
+        return view('lekar.dodajBolest', compact('bolest'));
     }
 
     public function update(Request $request, Bolest $bolest)
@@ -55,7 +55,7 @@ class BolestController extends Controller
             'sifra_bolesti' => request()->sifra_bolesti,
         ]);
 
-        return redirect('/sestra/bolesti')->withErrors(['poruka' => 'Podaci o bolesti su uspešno izmenjeni!']);
+        return redirect('/lekar/bolesti')->withErrors(['poruka' => 'Podaci o bolesti su uspešno izmenjeni!']);
     }
 
     public function destroy(Bolest $bolest)
@@ -71,6 +71,6 @@ class BolestController extends Controller
             ->orderBy('sifra_bolesti')
             ->paginate(10);
 
-        return view('sestra.bolesti', compact('bolesti'));
+        return view('lekar.bolesti', compact('bolesti'));
     }
 }

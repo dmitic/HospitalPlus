@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="formeCSS.css">
+</head>
+<body class="dodajPregledBody">
+    <div class="container my-5 dodajPregled">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header mb-4">PREGLED</div>
+    
+                    <div class="card-body">
+                        <form method="POST" action="#">
+                                <!-- @csrf -->
+
+                                <div class="form-group row">
+                                        <label for="datum" class="col-md-4 col-form-label text-md-right">Datum Posete</label>
+            
+                                        <div class="col-md-6 m-2">
+                                            <input id="datum" type="date" class="form-control" name="datum" value="" autofocus>
+                                        </div>
+                                </div>
+
+                                <div class="form-group row">
+                                        <label for="dijagnoza" class="col-md-4 col-form-label text-md-right">Dijagnoza</label>
+            
+                                        <div class="col-md-6 m-2">
+                                            <input id="dijagnoza" type="text" class="form-control" name="dijagnoza" value="" autofocus>
+                                        </div>
+                                </div>
+
+                                <div class="form-group row">
+                                        <label for="terapija" class="col-md-4 col-form-label text-md-right">Terapija</label>
+            
+                                        <div class="col-md-6 m-2">
+                                            <input id="terapija" type="text" class="form-control" name="terapija" value="" autofocus>
+                                        </div>
+                                </div>
+
+                                <div class="form-group row">
+                                        <label for="opis" class="col-md-4 col-form-label text-md-right">Opis</label>
+            
+                                        <div class="col-md-6 m-2">
+                                            <textarea id="opis" type="text" class="form-control" name="opis" value="" rows="10" autofocus></textarea>
+                                        </div>
+                                    </div>
+
+                                    
+                                        <div class="form-group row mb-2">
+                                            <div class="col-md-6 offset-md-4">
+                                                <button type="submit" class="btn btn-primary float-right">
+                                                    SAČUVAJ
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+.dodajPacijentaBody, .dodajLekBody, .dodajKorisnikaBody, 
+.dodajKartonBody, .dodajPregledBody, .dodajBolestBody {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; 
+}
+
+.dodajPacijentaBody{
+    background-image: url("../images/dodajPacijenta.jpeg");
+}
+
+.dodajLekBody{
+    background-image: url("../images/dodajLek.jpg");
+}
+
+.dodajLek{
+    opacity: 0.87;
+}
+
+.dodajPacijenta{
+    opacity: 0.87;
+}
+
+.dodajKorisnikaBody{
+    background-image: url("../images/dodajKorisnika.jpeg");
+}
+
+.dodajKorisnika{
+    opacity: 0.87;
+}
+
+.dodajKartonBody{
+    background-image: url("../images/dodajKarton.jpg");
+}
+
+.dodajKarton{
+    opacity: 0.87;
+}
+
+.dodajPregledBody{
+    background-image: url("../images/dodajPregled.jpg");
+}
+
+.dodajPregled{
+    opacity: 0.87;
+}
+
+.dodajBolestBody{
+    background-image: url("../images/dodajBolest.jpg");
+}
+
+.dodajBolest{
+    opacity: 0.87;
+}
+
+.container-widgetbar{
+    max-width: 1800px !important;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
