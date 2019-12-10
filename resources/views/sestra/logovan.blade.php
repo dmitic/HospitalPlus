@@ -20,10 +20,12 @@
         </a>
       </div>
       <div class="card categoryBoot" style="width: 15rem;">
-        <img src="/images/karton2.png" class="card-img-top" alt="Kartoni">
-        <div class="card-body">
-          <p class="card-text text-center">Kartoni</p>
-        </div>
+        <a href="/sestra/kartoni">
+          <img src="/images/karton2.png" class="card-img-top" alt="Kartoni">
+          <div class="card-body">
+            <p class="card-text text-center">Kartoni</p>
+          </div>
+        </a>
       </div>
       <div class="card categoryBoot" style="width: 15rem;">
         <a href="/sestra/bolesti">

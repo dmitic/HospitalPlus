@@ -17,7 +17,7 @@ Route::get('/', 'HomeController@index')->middleware('rola')->name('home');
 Route::get('/home', 'HomeController@index')->middleware('rola')->name('home');
 
 
-Route::prefix('/admin')->middleware(['admin', 'auth'])->group(function()
+Route::prefix('/admin')->middleware('admin')->group(function()
 {
     Route::get('/','HomeController@admin');
     Route::get('/svikorisnici', 'AdminController@index');
@@ -30,35 +30,30 @@ Route::prefix('/admin')->middleware(['admin', 'auth'])->group(function()
     
 });
 
-Route::prefix('/lekar')->middleware(['lekar', 'auth'])->group(function()
+Route::prefix('/lekar')->middleware('lekar')->group(function()
 {
     Route::get('/','HomeController@lekar');
 
     // Bolesti
-    Route::get('/bolesti','BolestController@index');
-    Route::get('/pretragaBolesti','BolestController@search');
-    Route::get('/dodajBolest','BolestController@create');
-    Route::get('/izmenibolest/{bolest}', 'BolestController@edit')->name('izmeniBolestLekar');
-    Route::put('/izmenibolest/{bolest}', 'BolestController@update')->name('snimiBolestLekar');
-    Route::post('/dodajBolest', 'BolestController@store')->name('dodajBolestLekar');
+    Route::get('/bolesti','BolestLekarController@index');
+    Route::get('/pretragaBolesti','BolestLekarController@search');
+    Route::get('/dodajBolest','BolestLekarController@create');
+    Route::post('/dodajBolest', 'BolestLekarController@store')->name('dodajBolestLekar');
+    Route::get('/izmenibolest/{bolest}', 'BolestLekarController@edit')->name('izmeniBolestLekar');
+    Route::put('/izmenibolest/{bolest}', 'BolestLekarController@update')->name('snimiBolestLekar');
 
     // Lekovi
-    Route::get('/lekovi','LekController@index');
-    Route::get('/pretragaLekova','LekController@search');
-    Route::get('/dodajLek','LekController@create');
-    Route::get('/izmenilek/{lek}', 'LekController@edit')->name('izmeniLekLekar');
-    Route::put('/izmenilek/{lek}', 'LekController@update')->name('snimiLekLekar');
-    Route::post('/dodajLek', 'LekController@store')->name('dodajLekLekar');
-    Route::delete('/lekovi/{lek}/delete','LekController@destroy')->name('obrisiLekLekar');
-
-    // Kartoni
-    Route::get('/kartoni','KartonController@index');
-    Route::get('/pretragaKartona','KartonController@search');
-    Route::get('/dodajKarton','KartonController@create');
+    Route::get('/lekovi','LekLekarController@index');
+    Route::get('/pretragaLekova','LekLekarController@search');
+    Route::get('/dodajLek','LekLekarController@create');
+    Route::post('/dodajLek', 'LekLekarController@store')->name('dodajLekLekar');
+    Route::get('/izmenilek/{lek}', 'LekLekarController@edit')->name('izmeniLekLekar');
+    Route::put('/izmenilek/{lek}', 'LekLekarController@update')->name('snimiLekLekar');
+    Route::delete('/lekovi/{lek}/delete','LekLekarController@destroy')->name('obrisiLekLekar');
     
 });
 
-Route::prefix('/sestra')->middleware(['sestra', 'auth'])->group(function()
+Route::prefix('/sestra')->middleware('sestra')->group(function()
 {
     Route::get('/','HomeController@sestra');
 
@@ -75,21 +70,16 @@ Route::prefix('/sestra')->middleware(['sestra', 'auth'])->group(function()
     Route::get('/bolesti','BolestController@index');
     Route::get('/pretragaBolesti','BolestController@search');
     Route::get('/dodajBolest','BolestController@create');
+    Route::post('/dodajBolest', 'BolestController@store')->name('dodajBolest');
     Route::get('/izmenibolest/{bolest}', 'BolestController@edit')->name('izmeniBolest');
     Route::put('/izmenibolest/{bolest}', 'BolestController@update')->name('snimiBolest');
-    Route::post('/dodajBolest', 'BolestController@store')->name('dodajBolest');
 
     // Lekovi
     Route::get('/lekovi','LekController@index');
     Route::get('/pretragaLekova','LekController@search');
     Route::get('/dodajLek','LekController@create');
+    Route::post('/dodajLek', 'LekController@store')->name('dodajLek');
     Route::get('/izmenilek/{lek}', 'LekController@edit')->name('izmeniLek');
     Route::put('/izmenilek/{lek}', 'LekController@update')->name('snimiLek');
-    Route::post('/dodajLek', 'LekController@store')->name('dodajLek');
     Route::delete('/lekovi/{lek}/delete','LekController@destroy')->name('obrisiLek');
-
-    // Kartoni
-    Route::get('/kartoni','KartonController@index');
-    Route::get('/pretragaKartona','KartonController@search');
-    Route::get('/dodajKarton','KartonController@create');
 });

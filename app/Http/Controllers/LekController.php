@@ -10,12 +10,19 @@ class LekController extends Controller
     public function index()
     {
         $lekovi = Lek::orderBy('naziv')->paginate(10);
-        return view('sestra.lekovi', compact('lekovi'));
+
+        if (\Auth::user()->rola->naziv == 'Lekar')
+            return view('lekar.lekovi', compact('lekovi'));
+        if (\Auth::user()->rola->naziv == 'Sestra')
+            return view('sestra.lekovi', compact('lekovi'));
     }
 
     public function create()
     {
-        return view('sestra.dodajLek');
+        if (\Auth::user()->rola->naziv === 'Lekar')
+            return view('lekar.dodajLek');
+        if (\Auth::user()->rola->naziv === 'Sestra')
+            return view('sestra.dodajLek');
     }
 
     public function store(Request $request)
@@ -30,7 +37,10 @@ class LekController extends Controller
         $lek->kolicina = $request->kolicina;
         $lek->save();
 
-        return redirect('/sestra/lekovi')->withErrors(['poruka' => 'Lek je uspešno unet!']);
+        if (\Auth::user()->rola->naziv === 'Lekar')
+            return redirect('/lekar/lekovi')->withErrors(['poruka' => 'Lek je uspešno unet!']);
+        if (\Auth::user()->rola->naziv === 'Sestra')
+            return redirect('/sestra/lekovi')->withErrors(['poruka' => 'Lek je uspešno unet!']);
     }
 
     public function show(Lek $lek)
@@ -40,7 +50,10 @@ class LekController extends Controller
 
     public function edit(Lek $lek)
     {
-        return view('sestra.dodajLek', compact('lek'));
+        if (\Auth::user()->rola->naziv === 'Lekar')
+            return view('lekar.dodajLek', compact('lek'));
+        if (\Auth::user()->rola->naziv === 'Sestra')
+            return view('sestra.dodajLek', compact('lek'));
     }
 
     public function update(Request $request, Lek $lek)
@@ -55,14 +68,19 @@ class LekController extends Controller
             'kolicina' => request()->kolicina,
         ]);
 
-        return redirect('/sestra/lekovi')->withErrors(['poruka' => 'Podaci o leku su uspešno izmenjeni!']);
+        if (\Auth::user()->rola->naziv === 'Lekar')
+            return redirect('/lekar/lekovi')->withErrors(['poruka' => 'Podaci o leku su uspešno izmenjeni!']);
+        if (\Auth::user()->rola->naziv === 'Sestra')
+            return redirect('/sestra/lekovi')->withErrors(['poruka' => 'Podaci o leku su uspešno izmenjeni!']);
     }
 
     public function destroy(Lek $lek)
     {
         $lek->delete();
-        return redirect('/sestra/lekovi')
-                    ->withErrors(['poruka' => 'Lek je obrisan!']);
+        if (\Auth::user()->rola->naziv === 'Lekar')
+            return redirect('/lekar/lekovi')->withErrors(['poruka' => 'Lek je obrisan!']);
+        if (\Auth::user()->rola->naziv === 'Sestra')
+            return redirect('/sestra/lekovi')->withErrors(['poruka' => 'Lek je obrisan!']);
     }
 
     public function search(){
@@ -72,6 +90,9 @@ class LekController extends Controller
             ->orderBy('naziv')
             ->paginate(10);
 
-        return view('sestra.lekovi', compact('lekovi'));
+        if (\Auth::user()->rola->naziv === 'Lekar')
+            return view('lekar.lekovi', compact('lekovi'));
+        if (\Auth::user()->rola->naziv === 'Sestra')
+            return view('sestra.lekovi', compact('lekovi'));
     }
 }
