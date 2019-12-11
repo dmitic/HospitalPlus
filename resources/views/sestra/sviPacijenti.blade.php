@@ -13,7 +13,7 @@
       <div class="card-header">
         <form action="/sestra/pretragaPacijenata" method="get">
           <div class="row justify-content-between">
-            <a href="/sestra" class=" btn btn-warning col-md-1">Back</a href="">
+            <a href="/sestra" class=" btn btn-warning col-md-1">Back</a>
 
             <div class="input-group col-md-3">
 
@@ -112,17 +112,8 @@
           </div>
         </div>
       </div>
-      <div class="row justify-content-between">
-        <a href="/sestra/dodajPacijenta" class=" btn btn-primary m-1 ml-4" title="Dodaj novog pacijenta">Dodaj pacijenta</a href="">
-
-        <a class="btn btn-danger m-1 mr-4" href="{{ route('logout') }}" onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();">
-          {{ __('Log Out') }}
-        </a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-          @csrf
-        </form>
-
+      <div class="row">
+        <a href="/sestra/dodajPacijenta" class=" btn btn-primary m-1 ml-4" title="Dodaj novog pacijenta">Dodaj pacijenta</a>
       </div>
     </div>
 

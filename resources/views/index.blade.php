@@ -6,7 +6,7 @@
   <div class="container-fluid ">
 
     <!-- header -->
-    @include('inc.navbar')
+    @include('inc.header_login')
 
     <!-- landing -->
     <div class="landing row">

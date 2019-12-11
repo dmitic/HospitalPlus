@@ -113,11 +113,10 @@
                 <div class="col-md-6 m-2">
                   <select name="uloga" id="uloga" class="form-control">
                     @foreach ($role as $rola)
-                    <option value="{{ $rola->id }}" {{ old('uloga') == $rola->id ? "selected":"" }} @if
-                      (isset($korisnik->rola->id) && ($korisnik->rola->id === $rola->id))
+                    <option value="{{ $rola->id }}" {{ old('uloga') == $rola->id ? 'selected' : '' }} 
+                      @if (isset($korisnik->rola->id) && ($korisnik->rola->id === $rola->id))
                       {{ 'selected' }}
-                      @endif
-                      >{{ $rola->naziv }}</option>
+                      @endif>{{ $rola->naziv }}</option>
                     @endforeach
                   </select>
                 </div>

@@ -105,17 +105,9 @@
           {{ isset($_GET['str']) ? $korisnici->appends(request()->input())->links() : $korisnici->links() }}
         </div>
       </div>
-      <div class="row justify-content-between">
+      <div class="row">
         <a href="/admin/dodajkorisnika" class=" btn btn-primary m-1 ml-4" title="Dodaj novog korisnika">Dodaj
           korisnika</a>
-        <a class="btn btn-danger m-1 mr-4" href="{{ route('logout') }}" onclick="event.preventDefault();
-          document.getElementById('logout-form').submit();">
-          {{ __('Log Out') }}
-        </a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-          @csrf
-        </form>
-
       </div>
     </div>
     @endsection
