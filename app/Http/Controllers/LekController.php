@@ -43,11 +43,6 @@ class LekController extends Controller
             return redirect('/sestra/lekovi')->withErrors(['poruka' => 'Lek je uspešno unet!']);
     }
 
-    public function show(Lek $lek)
-    {
-        //
-    }
-
     public function edit(Lek $lek)
     {
         if (\Auth::user()->rola->naziv === 'Lekar')

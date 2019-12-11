@@ -33,6 +33,7 @@
 
         <div class="card-body">
           <div class="table-responsive">
+              @if (count($bolesti) > 0)
             <table class="table table-striped tabProizvodi" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
@@ -58,6 +59,13 @@
                 @endforeach
               </tbody>
             </table>
+            @else
+            <p><strong>
+                @if(isset($_GET['str']))
+                  {{ $_GET['str'] }}
+                @endif
+              </strong> ne postoji u bazi!</p>
+            @endif
           </div>
           <div class="row">
             <div class="col-md-12 row justify-content-center">

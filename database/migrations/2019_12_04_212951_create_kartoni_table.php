@@ -21,7 +21,8 @@ class CreateKartoniTable extends Migration
 
 
             $table->foreign('pacijent_id')
-                ->references('id')->on('pacijenti');
+                ->references('id')->on('pacijenti')
+                ->onDelete('cascade');
         });
     }
 

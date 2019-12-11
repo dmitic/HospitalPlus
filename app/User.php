@@ -47,4 +47,5 @@ class User extends Authenticatable
     public function rola(){
         return $this->hasOne('App\Uloga', 'id', 'uloga_id');
     }
+    
 }

@@ -12,4 +12,7 @@ class Pacijent extends Model
     public function izabraniLekar(){
         return $this->hasOne('App\User', 'id', 'user_id');
     }
+    public function karton(){
+        return $this->hasOne(Karton::class);
+    }
 }

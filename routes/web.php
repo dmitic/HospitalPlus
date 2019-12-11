@@ -52,9 +52,19 @@ Route::prefix('/lekar')->middleware(['lekar', 'auth'])->group(function()
     Route::delete('/lekovi/{lek}/delete','LekController@destroy')->name('obrisiLekLekar');
 
     // Kartoni
+    Route::get('/dodajKarton','KartonController@create');
+
     Route::get('/kartoni','KartonController@index');
     Route::get('/pretragaKartona','KartonController@search');
-    Route::get('/dodajKarton','KartonController@create');
+    Route::get('/izmeniKarton/{pacijent}', 'KartonController@edit')->name('izmeniKartonLekar');
+    Route::put('/izmeniKarton/{pacijent}','KartonController@update')->name('snimiKartonLekar');
+    Route::post('/dodajKarton/{pacijent}', 'KartonController@store')->name('dodajKartonLekar');
+
+    // evidencije lečenja
+    Route::get('/dodajpregled/{karton}','EvidencijaLecenjaController@create')->name('dodajPregled');
+    Route::post('/snimipregled','EvidencijaLecenjaController@store')->name('snimipregled');
+    // Route::post('/snimipregled/{evlec}','EvidencijaLecenjaController@store')->name('snimipregled');
+    Route::get('/prikazi/{karton}','KartonController@show');
     
 });
 
@@ -91,5 +101,10 @@ Route::prefix('/sestra')->middleware(['sestra', 'auth'])->group(function()
     // Kartoni
     Route::get('/kartoni','KartonController@index');
     Route::get('/pretragaKartona','KartonController@search');
-    Route::get('/dodajKarton','KartonController@create');
+    Route::get('/izmeniKarton/{pacijent}', 'KartonController@edit')->name('izmeniKarton');
+    Route::put('/izmeniKarton/{pacijent}','KartonController@update')->name('snimiKarton');
+    Route::post('/dodajKarton/{pacijent}', 'KartonController@store')->name('dodajKarton');
+
+    // evidencije lečenja
+    Route::get('/prikazi/{karton}','KartonController@show');
 });

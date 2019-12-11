@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Karton extends Model
 {
     protected $table = 'kartoni';
+    protected $guarded = [];
 
     // Relacije
     public function pacijent(){
@@ -23,4 +24,5 @@ class Karton extends Model
         return $this->hasOneThrough(User::class, Pacijent::class, 'id', 'id', null, 'user_id');
         // return $this->hasOneThrough('App\User', 'App\Pacijent', 'id', 'id', null, 'user_id');
     }
+
 }

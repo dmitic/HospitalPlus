@@ -7,6 +7,7 @@
   <!-- header -->
   @include('inc.navbar')
   <!-- Tabela korisnik -->
+  {{-- {{dd($pacijenti)}} --}}
   <div>
     <div class="card mb-3">
       <div class="card-header">
@@ -14,7 +15,8 @@
           <div class="row justify-content-between">
             <a href="/sestra" class=" btn btn-warning col-md-1">Back</a>
             <div class="input-group col-md-3">
-              <input type="text" name="str" class="form-control" placeholder="Pretraga..." value="{{ $_GET['str'] ?? '' }}">
+              <input type="text" name="str" class="form-control" placeholder="Pretraga..."
+                value="{{ $_GET['str'] ?? '' }}">
               <span class="input-group-btn ml-1">
                 <button class="btn btn-success">Traži!</button>
               </span>
@@ -22,8 +24,17 @@
           </div>
         </form>
       </div>
+      @error('poruka')
+      <div class="row  text-center">
+        <div class="col-md-12">
+          <div class="alert alert-success">{{ $message }}</div>
+        </div>
+      </div>
+      @enderror
+
       <div class="card-body">
         <div class="table-responsive">
+          @if (count($pacijenti) > 0)
           <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
@@ -32,7 +43,7 @@
                 <th>LBO</th>
                 <th>Izabrani lekar</th>
                 <th>Broj kartona</th>
-                <th style="width:50px"></th>
+                <th style="width:200px"></th>
               </tr>
             </thead>
             <tfoot>
@@ -42,34 +53,41 @@
                 <th>LBO</th>
                 <th>Izabrani lekar</th>
                 <th>Broj kartona</th>
-                <th style="width:50px"></th>
+                <th style="width:200px"></th>
               </tr>
             </tfoot>
             <tbody>
-              @foreach ($kartoni as $karton)
-                <tr>
-                  <td>{{ $karton->pacijent->ime }}</td>
-                  <td>{{ $karton->pacijent->prezime }}</td>
-                  <td>{{ $karton->pacijent->lbo }}</td>
-                  <td>{{ $karton->lekar->ime }} {{ $karton->lekar->prezime }}</td>
-                  <td><a href="#" style="text-decoration:none;" title="Detaljnije....">{{ $karton->broj_kartona }}</a></td>
-                  <td><a href="#" class="btn btn-primary" title="Izmeni proizvod">Izmeni</a></td>
-                </tr>  
+              @foreach ($pacijenti as $pacijent)
+              <tr>
+                <td>{{ $pacijent->ime }}</td>
+                <td>{{ $pacijent->prezime }}</td>
+                <td>{{ $pacijent->lbo }}</td>
+                <td>{{ $pacijent->izabraniLekar->ime }} {{ $pacijent->izabraniLekar->prezime }}</td>
+                <td><a href="/sestra/prikazi/{{$pacijent->karton->id ?? ''}}" style="text-decoration:none;"
+                    title="Detaljnije....">{{ $pacijent->karton->broj_kartona ?? ''}}</a></td>
+                <td><a href="{{ route('izmeniKarton', ['pacijent' => $pacijent->id]) }}" class="btn btn-primary"
+                    title="Izmeni">Dodaj karton/Izmeni</a></td>
+              </tr>
               @endforeach
             </tbody>
           </table>
+          @else
+          <p><strong>
+              @if(isset($_GET['str']))
+              {{ $_GET['str'] }}
+              @endif
+            </strong> ne postoji u bazi!</p>
+          @endif
         </div>
         <div class="row">
           <div class="col-md-12 text-center">
-              <div class="col-md-12 row justify-content-center">
-                {{ isset($_GET['str']) ? $kartoni->appends(request()->input())->links() : $kartoni->links() }}
-              </div>
+            <div class="col-md-12 row justify-content-center">
+              {{ isset($_GET['str']) ? $pacijenti->appends(request()->input())->links() : $pacijenti->links() }}
+            </div>
           </div>
         </div>
       </div>
-      <div class="row justify-content-between">
-        <a href="/sestra/dodajKarton" class=" btn btn-primary m-1 ml-4" title="Dodaj novog korisnika">Dodaj karton</a>
-
+      <div class="row justify-content-end">
         <a class="btn btn-danger m-1 mr-4" href="{{ route('logout') }}" onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">
           {{ __('Log Out') }}

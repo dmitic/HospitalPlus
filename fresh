@@ -1,0 +1,27 @@
+Nothing to migrate.
+Seeding: UlogeTableSeeder
+Seeded:  UlogeTableSeeder (0 seconds)
+Seeding: UsersTableSeeder
+
+   Illuminate\Database\QueryException  : SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'admin@admin.com' for key 'users_email_unique' (SQL: insert into `users` (`email`, `ime`, `password`, `prezime`, `telefon`, `uloga_id`, `username`) values (admin@admin.com, John, $2y$10$D.um8XcVK3cMd8ql.l4KSue9JCThFGVRK6wg1UqLbhs95Sic/cIzC, Doe, 12345678, 1, jdoe), (kerry@lekar.com, Kerry, $2y$10$dRyYeSuZKl.W6plRLZmXu.kNt4IaUGhWhGeUvSB8OyddUYBEy7mWO, Weaver, 12345678, 2, kweaver), (chuny@sestra.com, Chuny, $2y$10$d1M.KSJiwKbcR1FurM6T0evhTQ4boZi0ndEE2rNmWJh1AzIgNUQ4O, Marquez, 12345678, 3, cmarquez), (malik@sestra.com, Malik, $2y$10$Y.n6y53wm/cTZHJzAbDBG.Ls/yYa2it1dQIfEmjsIv//pRfmJVQIO, McGrath, 12345678, 3, malik), (abby@sestra.com, Abby, $2y$10$dfC2FZk3qsIlBljm5xyBdO6hUIqA1E.EyN7zQKRnSzrM3gzZE.LYO, Lockhart, 12345678, 3, malik), (haleh@sestra.com, Haleh, $2y$10$1IcVpchryXgUgODBSicPM.5Rxt2UI8MFHCQGUFpvm8jjhTQe5WBH., Adams, 12345678, 3, hadams), (mark@lekar.com, Mark, $2y$10$X2GD8qxDbpTuLQ77qaxbCurZ9.PazQK2fm8nl1yo77r0PhmF1IMTi, Greene, 12345678, 2, marko), (doris@sestra.com, Doris, $2y$10$FQ3v10COw7OhR/.vzBK2yOuZG0m99PZwRySr6yo.skwMTBVUKhZ5O, Pickman, 12345678, 3, doris), (elizabeth@sestra.com, Elizabeth, $2y$10$DpZt9is1BhtirIW5WKIcm.MYBAaB.r3rmMrQjnjnPEXJ.JlWnSfca, Corday, 12345678, 3, Elizabeth), (lewis@sestra.com, Susan, $2y$10$Eb/MRoJ84v4AFf5KRnHwQuF3DWx1izCPQKURtwNef8Tz.t3K/GLF6, Lewis, 12345678, 3, Lewis), (markovic@lekar.com, Jerry, $2y$10$uxQJHaje3ov89n6YAtUGi.oVubvzG/bGZmePHnG.WA2jJEJWAN16i, Markovic, 12345678, 2, JMarkovic))
+
+  at C:\xampp\htdocs\hospitalplus\vendor\laravel\framework\src\Illuminate\Database\Connection.php:665
+    661|         // If an exception occurs when attempting to run a query, we'll format the error
+    662|         // message to include the bindings with SQL, which will make this exception a
+    663|         // lot more helpful to the developer instead of just the database's errors.
+    664|         catch (Exception $e) {
+  > 665|             throw new QueryException(
+    666|                 $query, $this->prepareBindings($bindings), $e
+    667|             );
+    668|         }
+    669|
+
+  Exception trace:
+
+  1   PDOException::("SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'admin@admin.com' for key 'users_email_unique'")
+      C:\xampp\htdocs\hospitalplus\vendor\laravel\framework\src\Illuminate\Database\Connection.php:459
+
+  2   PDOStatement::execute()
+      C:\xampp\htdocs\hospitalplus\vendor\laravel\framework\src\Illuminate\Database\Connection.php:459
+
+  Please use the argument -v to see more details.

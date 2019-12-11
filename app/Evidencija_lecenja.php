@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Evidencija_lecenja extends Model
 {
     protected $table = 'evidencija_lecenja';
+    protected $guarded = [];
 
     // Relacije
     public function karton(){

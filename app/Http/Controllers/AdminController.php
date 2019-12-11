@@ -83,11 +83,9 @@ class AdminController extends Controller
 
     public function destroy(User $korisnik)
     {
-        // dd($korisnik);
         $korisnik->delete();
         return redirect('/admin/svikorisnici')
                     ->withErrors(['poruka' => 'Korisnik je obrisan!']);
-        
     }
 
     public function search(){

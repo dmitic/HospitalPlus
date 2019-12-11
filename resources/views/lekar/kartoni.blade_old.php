@@ -22,16 +22,8 @@
           </div>
         </form>
       </div>
-      @error('poruka') 
-        <div class="row  text-center">
-          <div class="col-md-12">
-            <div class="alert alert-success">{{ $message }}</div>
-          </div>
-        </div>
-      @enderror
       <div class="card-body">
         <div class="table-responsive">
-          @if (count($pacijenti) > 0)
           <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
@@ -40,7 +32,7 @@
                 <th>LBO</th>
                 <th>Izabrani lekar</th>
                 <th>Broj kartona</th>
-                <th style="width:200px"></th>
+                <th style="width:50px"></th>
               </tr>
             </thead>
             <tfoot>
@@ -50,39 +42,36 @@
                 <th>LBO</th>
                 <th>Izabrani lekar</th>
                 <th>Broj kartona</th>
-                <th style="width:200px"></th>
+                <th style="width:50px"></th>
               </tr>
             </tfoot>
             <tbody>
-              @foreach ($pacijenti as $pacijent)
+              {{-- {{dd($kartoni)}} --}}
+              @foreach ($kartoni as $karton)
                 <tr>
-                  <td>{{ $pacijent->ime }}</td>
-                  <td>{{ $pacijent->prezime }}</td>
-                  <td>{{ $pacijent->lbo }}</td>
-                  <td>{{ $pacijent->izabraniLekar->ime }} {{ $pacijent->izabraniLekar->prezime }}</td>
-                  <td><a href="/lekar/prikazi/{{$pacijent->karton->id ?? ''}}" style="text-decoration:none;" title="Detaljnije....">{{ $pacijent->karton->broj_kartona ?? ''}}</a></td>
-                  <td><a href="{{ route('izmeniKartonLekar', ['pacijent' => $pacijent->id]) }}" class="btn btn-primary" title="Izmeni">Dodaj karton/Izmeni</a></td>
+                  <td>{{ $karton->pacijent->ime }}</td>
+                  <td>{{ $karton->pacijent->prezime }}</td>
+                  <td>{{ $karton->pacijent->lbo }}</td>
+                  <td>{{ $karton->lekar->ime }} {{ $karton->lekar->prezime }}</td>
+                  {{-- <td>{{ $karton->lekar['ime'] }} {{ $karton->lekar['prezime'] }}</td> --}}
+                  <td><a href="#" style="text-decoration:none;" title="Detaljnije....">{{ $karton->broj_kartona }}</a></td>
+                  <td><a href="#" class="btn btn-primary" title="Izmeni proizvod">Izmeni</a></td>
                 </tr>  
               @endforeach
             </tbody>
           </table>
-          @else
-          <p>Pacijent <strong>
-              @if(isset($_GET['str']))
-                {{ $_GET['str'] }}
-              @endif
-            </strong> ne postoji u bazi!</p>
-          @endif
         </div>
         <div class="row">
           <div class="col-md-12 text-center">
               <div class="col-md-12 row justify-content-center">
-                {{ isset($_GET['str']) ? $pacijenti->appends(request()->input())->links() : $pacijenti->links() }}
+                {{ isset($_GET['str']) ? $kartoni->appends(request()->input())->links() : $kartoni->links() }}
               </div>
           </div>
         </div>
       </div>
-      <div class="row justify-content-end">
+      <div class="row justify-content-between">
+        <a href="/lekar/dodajKarton" class=" btn btn-primary m-1 ml-4" title="Dodaj novog korisnika">Dodaj karton</a>
+
         <a class="btn btn-danger m-1 mr-4" href="{{ route('logout') }}" onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">
           {{ __('Log Out') }}

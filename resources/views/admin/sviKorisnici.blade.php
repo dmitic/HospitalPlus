@@ -17,7 +17,8 @@
 
             <div class="input-group col-md-3">
 
-              <input type="text" name="str" class="form-control" placeholder="Pretraga korisnika" value="{{ $_GET['str'] ?? '' }}">
+              <input type="text" name="str" class="form-control" placeholder="Pretraga korisnika"
+                value="{{ $_GET['str'] ?? '' }}">
 
               <span class="input-group-btn ml-1">
                 <button class="btn btn-success">Traži!</button>
@@ -26,18 +27,18 @@
           </div>
         </form>
       </div>
-      
-      @error('poruka') 
-        <div class="row  text-center">
-          <div class="col-md-12">
-            <div class="alert alert-success">{{ $message }}</div>
-          </div>
+
+      @error('poruka')
+      <div class="row  text-center">
+        <div class="col-md-12">
+          <div class="alert alert-success">{{ $message }}</div>
         </div>
+      </div>
       @enderror
 
       <div class="card-body">
         <div class="table-responsive">
-
+          @if (count($korisnici) > 0)
           <table class="table table-striped tabProizvodi" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
@@ -69,32 +70,40 @@
             </tfoot>
             <tbody>
               @foreach ($korisnici as $korisnik)
-                  
-                <tr>
-                  <td>{{ $korisnik->username }}</td>
-                  <td>{{ $korisnik->ime }}</td>
-                  <td>{{ $korisnik->prezime }}</td>
-                  <td>{{ $korisnik->telefon }}</td>
-                  <td>{{ $korisnik->email }}</td>
-                  <td>{{ $korisnik->rola->naziv }}</td>
-                  <td><a href="izmenikorisnika/{{ $korisnik->id }}" class="btn btn-primary" title="Izmeni korisnika">Izmeni</a></td>
-                  <td style="text-align:center; width:180px;">
+
+              <tr>
+                <td>{{ $korisnik->username }}</td>
+                <td>{{ $korisnik->ime }}</td>
+                <td>{{ $korisnik->prezime }}</td>
+                <td>{{ $korisnik->telefon }}</td>
+                <td>{{ $korisnik->email }}</td>
+                <td>{{ $korisnik->rola->naziv }}</td>
+                <td><a href="izmenikorisnika/{{ $korisnik->id }}" class="btn btn-primary"
+                    title="Izmeni korisnika">Izmeni</a></td>
+                <td style="text-align:center; width:180px;">
                   <form action="{{ route('obrisiKorisnika', ['korisnik' => $korisnik->id]) }}" method="post">
                     @csrf
                     @method('DELETE')
-                      <button class="btn btn-danger" onclick="return confirm('Da li si siguran da želiš da obrišeš?')"
-                        title="Obriši korisnika">Obriši</button>
-                    </form>
-                  </td>
-                </tr>
+                    <button class="btn btn-danger" onclick="return confirm('Da li si siguran da želiš da obrišeš?')"
+                      title="Obriši korisnika">Obriši</button>
+                  </form>
+                </td>
+              </tr>
               @endforeach
 
             </tbody>
           </table>
+          @else
+          <p><strong>
+              @if(isset($_GET['str']))
+              {{ $_GET['str'] }}
+              @endif
+            </strong> ne postoji u bazi!</p>
+          @endif
         </div>
-          <div class="col-md-12 row justify-content-center">
-              {{ isset($_GET['str']) ? $korisnici->appends(request()->input())->links() : $korisnici->links() }}
-          </div>
+        <div class="col-md-12 row justify-content-center">
+          {{ isset($_GET['str']) ? $korisnici->appends(request()->input())->links() : $korisnici->links() }}
+        </div>
       </div>
       <div class="row justify-content-between">
         <a href="/admin/dodajkorisnika" class=" btn btn-primary m-1 ml-4" title="Dodaj novog korisnika">Dodaj

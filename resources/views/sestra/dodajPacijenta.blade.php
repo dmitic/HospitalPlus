@@ -178,7 +178,10 @@
               </div>
             </div>
             <div class="form-group row mb-2">
-              <div class="col-md-6 offset-md-4">
+              <div class="col-md-8 offset-md-2">
+                <a href="/sestra/pacijenti" class="btn btn-outline-secondary float-left">
+                  OTKAŽI
+                </a>
                 <button type="submit" class="btn btn-primary float-right">
                   SAČUVAJ
                 </button>

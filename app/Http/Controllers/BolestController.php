@@ -43,11 +43,6 @@ class BolestController extends Controller
             return redirect('/sestra/bolesti')->withErrors(['poruka' => 'Bolest je uspešno uneta!']);
     }
 
-    public function show(Bolest $bolest)
-    {
-        //
-    }
-
     public function edit(Bolest $bolest)
     {
         if (\Auth::user()->rola->naziv == 'Lekar')
@@ -72,11 +67,6 @@ class BolestController extends Controller
             return redirect('/lekar/bolesti')->withErrors(['poruka' => 'Podaci o bolesti su uspešno izmenjeni!']);
         if (\Auth::user()->rola->naziv == 'Sestra')
             return redirect('/sestra/bolesti')->withErrors(['poruka' => 'Podaci o bolesti su uspešno izmenjeni!']);
-    }
-
-    public function destroy(Bolest $bolest)
-    {
-        //
     }
 
     public function search(){

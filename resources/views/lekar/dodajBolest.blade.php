@@ -34,11 +34,12 @@
                 <label for="naziv" class="col-md-4 col-form-label text-md-right">Naziv</label>
 
                 <div class="col-md-6 m-2">
-                  <input id="naziv" type="text" class="form-control @error('naziv') is-invalid @enderror" name="naziv" value="{{ $bolest->naziv ?? old('naziv') }}" autofocus>
+                  <input id="naziv" type="text" class="form-control @error('naziv') is-invalid @enderror" name="naziv"
+                    value="{{ $bolest->naziv ?? old('naziv') }}" autofocus>
                   @error('naziv')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
                   @enderror
                 </div>
               </div>
@@ -47,16 +48,21 @@
                 <label for="sifra_bolesti" class="col-md-4 col-form-label text-md-right">Šifra Bolesti</label>
 
                 <div class="col-md-6 m-2">
-                  <input id="sifra_bolesti" type="text" class="form-control @error('sifra_bolesti') is-invalid @enderror" name="sifra_bolesti" value="{{ $bolest->sifra_bolesti ?? old('sifra_bolesti') }}" autofocus>
+                  <input id="sifra_bolesti" type="text"
+                    class="form-control @error('sifra_bolesti') is-invalid @enderror" name="sifra_bolesti"
+                    value="{{ $bolest->sifra_bolesti ?? old('sifra_bolesti') }}" autofocus>
                   @error('sifra_bolesti')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
                   @enderror
                 </div>
               </div>
               <div class="form-group row mb-2">
-                <div class="col-md-6 offset-md-4">
+                <div class="col-md-8 offset-md-2">
+                  <a href="/lekar/bolesti" class="btn btn-outline-secondary float-left">
+                    OTKAŽI
+                  </a>
                   <button type="submit" class="btn btn-primary float-right">
                     SAČUVAJ
                   </button>
