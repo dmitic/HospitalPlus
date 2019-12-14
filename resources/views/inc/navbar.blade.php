@@ -13,7 +13,7 @@
 
   <!-- role -->
   <div class="col-xs-12 col-sm-6 col-lg-3 text-center adr-wt ">
-    <p>{{ \Auth::user()->rola->naziv }}: {{ \Auth::user()->ime }} {{ \Auth::user()->prezime }}</p>
+    <p>{{ \Auth::user()->rola->naziv }} {{ \Auth::user()->ime }} {{ \Auth::user()->prezime }}</p>
   </div>
 
   <!-- log-out -->

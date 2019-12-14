@@ -19,6 +19,7 @@ class CreateEvidencijaLecenjaTable extends Migration
             $table->date('datum_posete');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('bolest_id');
+            $table->bigInteger('kolicina');
             $table->text('opis');
             $table->unsignedBigInteger('lek_id');
             $table->timestamps();

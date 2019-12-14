@@ -21,6 +21,7 @@ class EvLecenjaTableSeeder extends Seeder
                  zavisno od toga da li je još neki sistem organa napadnut i oštećen dugogodišnjom hipretenzijom.
                  Organi koji najviše trpe i stradaju u hipertenziji su: srce, oči, bubrezi i krvni sudovi.',
                 'lek_id' => '5',
+                'kolicina' => '3',
             ],
             [
                 'karton_id' => '1',
@@ -30,6 +31,7 @@ class EvLecenjaTableSeeder extends Seeder
                 'opis' => 'Veoma je važno merenje krvnog pritiska u kućnim uslovima jer je dokazano da pacijenti imaju veći pritisak 
                 kod lekara nego u kući.Pritisak treba meriti po mogućstvu u istom položaju, na istoj ruci i istim aparatom.',
                 'lek_id' => '1',
+                'kolicina' => '5',
             ],
             [
                 'karton_id' => '2',
@@ -39,6 +41,7 @@ class EvLecenjaTableSeeder extends Seeder
                 'opis' => 'Napad angine pektoris se prepoznaje kao bol ili izrazita nelagoda u trajanju od nekoliko minuta u grudnom košu. 
                 Javlja se i probadanje, stiskanje i osećaj težine u grudnom košu, levoj ruci i donjoj vilici.',
                 'lek_id' => '6',
+                'kolicina' => '8',
             ],
             [
                 'karton_id' => '2',
@@ -48,6 +51,7 @@ class EvLecenjaTableSeeder extends Seeder
                 'opis' => 'Često se javlja nakon izlaganja većim fizičkim naporima, hladnoći, kod stresnih situacija, 
                 nakon preteranog unosa alkohola i cigareta i prilikom polnih odnosa.',
                 'lek_id' => '7',
+                'kolicina' => '7',
             ],
             [
                 'karton_id' => '3',
@@ -57,6 +61,7 @@ class EvLecenjaTableSeeder extends Seeder
                 'opis' => 'Bol u grudima, EKG (elektrokardiografija), 
                 Laboratorijske analize (kreatinfosfokinaza - CK i to naročito MB frakcija, troponin I i T i mioglobin)',
                 'lek_id' => '9',
+                'kolicina' => '20',
             ],
         ]);
     }

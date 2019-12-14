@@ -59,7 +59,7 @@
               @foreach ($lekovi as $lek)
               <tr>
                 <td>{{ $lek->naziv }}</td>
-                <td>{{ $lek->kolicina }}</td>
+                <td>{{ $lek->kolicina }} komada</td>
                 <td><a href="{{ route('izmeniLek', ['lek' => $lek->id]) }}" class="btn btn-primary"
                     title="Izmeni...">Izmeni</a></td>
                 <td style="text-align:center; width:180px;">

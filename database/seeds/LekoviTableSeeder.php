@@ -14,32 +14,32 @@ class LekoviTableSeeder extends Seeder
         DB::table('lekovi')->insert([
             [
                 'naziv' => 'Aspirin protect',
-                'kolicina' => '25',
+                'kolicina' => '250',
 
             ],
             [
                 'naziv' => 'Lizopril',
-                'kolicina' => '30',
+                'kolicina' => '300',
 
             ],
             [
                 'naziv' => 'Dilacor',
-                'kolicina' => '35',
+                'kolicina' => '350',
 
             ],
             [
                 'naziv' => 'Norvasc',
-                'kolicina' => '40',
+                'kolicina' => '400',
 
             ],
             [
                 'naziv' => 'Tritace comp',
-                'kolicina' => '45',
+                'kolicina' => '405',
 
             ],
             [
                 'naziv' => 'Presolol',
-                'kolicina' => '50',
+                'kolicina' => '500',
 
             ],
             [
@@ -59,7 +59,7 @@ class LekoviTableSeeder extends Seeder
             ],
             [
                 'naziv' => 'Erynorm plus',
-                'kolicina' => '75',
+                'kolicina' => '175',
 
             ],
        

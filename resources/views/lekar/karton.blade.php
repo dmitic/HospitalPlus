@@ -18,11 +18,16 @@
         </form>
       </div>
       <div class="card-body">
-        
         <div class="row">
           <div class="col-md-12 text-center mb-3">Broj kartona: <strong>{{$karton->broj_kartona}}, {{$karton->pacijent->ime}} {{$karton->pacijent->prezime}}</strong></div>
         </div>
-
+        @error('poruka') 
+          <div class="row  text-center">
+            <div class="col-md-12">
+              <div class="alert alert-success">{{ $message }}</div>
+            </div>
+          </div>
+        @enderror
         <div class="table-responsive">
           @if (count($pregledi) > 0)
           <table class="table table-striped tabProizvodi" id="dataTable" width="100%" cellspacing="0">
@@ -32,6 +37,7 @@
                 <th>Lekar</th>
                 <th>Dijagnoza</th>
                 <th>Terapija</th>
+                <th>Prepisana količina</th>
                 <th style="width:800px;">Opis</th>
               </tr>
             </thead>
@@ -41,6 +47,7 @@
                 <th>Lekar</th>
                 <th>Dijagnoza</th>
                 <th>Terapija</th>
+                <th>Prepisana količina</th>
                 <th>Opis</th>
               </tr>
             </tfoot>
@@ -51,6 +58,7 @@
                 <td>{{ $pregled->lekar->ime }} {{ $pregled->lekar->prezime }}</td>
                 <td>{{ $pregled->bolest->naziv}}</td>
                 <td>{{ $pregled->lek->naziv}}</td>
+                <td>{{ $pregled->kolicina}} komada</td>
                 <td>{{ $pregled->opis }}</td>
               </tr>
               @endforeach
