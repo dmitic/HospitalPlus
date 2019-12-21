@@ -9,10 +9,13 @@
     @include('inc.header_login')
 
     <!-- landing -->
-    <div class="landing row">
+    <!-- <div class="landing row"> -->
+    <div class="landing row d-flex justify-content-around">
+      
 
       <!-- login form -->
-      <div class="container text-light mt-5">
+      <!-- <div class="container text-light mt-5"> -->
+      <div id="weather-date-time"></div>
         <div class="row justify-content-end mt-5">
           <div class="col-md-7">
             <form action="{{ route('login') }}" method="POST" class="border h-3 rounded-lg bg-light text-center p-5">
@@ -48,4 +51,5 @@
       </div>
     </div>
   </div>
+  <script src="/js/app.js"></script>
   @endsection

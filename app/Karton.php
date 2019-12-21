@@ -16,13 +16,11 @@ class Karton extends Model
 
     public function evLecenja(){
         return $this->hasMany(Evidencija_lecenja::class);
-        // return $this->hasMany('App\Evidencija_lecenja', 'karton_id', 'id');
     }
 
     // Dobija se lekar preko modela Pacijent
     public function lekar(){
         return $this->hasOneThrough(User::class, Pacijent::class, 'id', 'id', null, 'user_id');
-        // return $this->hasOneThrough('App\User', 'App\Pacijent', 'id', 'id', null, 'user_id');
     }
 
 }

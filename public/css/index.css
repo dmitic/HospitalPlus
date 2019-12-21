@@ -40,6 +40,21 @@ span#time_of_6_1870626152{
 }
 
 
+.wtt{
+    display: flex;
+    flex-wrap: wrap;
+    width:500px;
+    height: 500px;
+    border:2px solid white;
+    margin-top:5vw;
+}
+.wtt-cell{
+    flex-basis: 50%;
+    border:2px solid white;
+    
+}
+
+
 @media(max-width: 1200px){
     .header{
         height: 20vh;

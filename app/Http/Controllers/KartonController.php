@@ -15,6 +15,7 @@ class KartonController extends Controller
         $kartoni = Karton::orderBy('broj_kartona')->paginate(10);
 
         // Kveri da vidi samo svoje pacijente - u principu ga ograničava da izvrši pregled nad tuđim pacijentom što je loše
+        
         // $pacijentiLekar = Pacijent::with('karton')
         //     ->whereHas('izabraniLekar', function($query) {
         //             $query->where('id', '=', \Auth::user()->id);
