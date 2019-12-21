@@ -25,7 +25,7 @@ Mogu se uočiti sledeći slučajevi korišćenja:
 5. Unos/izmena/pregled/brisanje kartona pacijenata (asistent, lekar)
 6. Unos/izmena/pregled/brisanje podataka o zalihama lekova (asistent)
 
-##Prijava korisnika na aplikaciju
+## Prijava korisnika na aplikaciju
 Preduslovi: Korisnički nalog za korisnika je kreiran od strane admin-a.
 Unos:
 - Korisničko ime
