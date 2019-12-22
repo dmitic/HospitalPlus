@@ -44,7 +44,6 @@ class Prognoza extends Component {
   otkucaj() {
     this.setState({
       time: {
-        date: new Date(),
         hours: new Date().toLocaleTimeString('sr-SR')
       }
     });

@@ -69792,7 +69792,6 @@ function (_Component) {
     value: function otkucaj() {
       this.setState({
         time: {
-          date: new Date(),
           hours: new Date().toLocaleTimeString('sr-SR')
         }
       });
@@ -69849,7 +69848,7 @@ __webpack_require__.r(__webpack_exports__);
 function Temp(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "wtt-cell bg-light"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.temperatura), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.temperatura, "\u2103"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: props.src
   }));
 }
