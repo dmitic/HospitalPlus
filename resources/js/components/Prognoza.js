@@ -55,15 +55,19 @@ class Prognoza extends Component {
 
   render() {
     return (
-
-      <div className="wtt">
-        <div className="wtt-cell"></div>
-        <Datum datum={this.state.time.date} />
-        <Temp temperatura={Math.round(this.state.weather.temperature)} src={this.state.weather.src} />
-        <div className="wtt-cell"></div>
-        <div className="wtt-cell"></div>
-        <Time vreme={this.state.time.hours}/>
-      </div>
+    
+      <div className="col-md-4 text-center">
+                <div className="widget rounded">
+                    <div className="float-left m-2">
+                        <p className="grad">Beograd</p>
+                    </div>
+                    <Datum datum={this.state.time.date} />
+                    <Time vreme={this.state.time.hours}/>
+                    
+                   <Temp temperatura={Math.round(this.state.weather.temperature)} src={this.state.weather.src} />
+                </div>
+            </div>
+      
     );
   }
 }

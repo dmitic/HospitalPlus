@@ -2,8 +2,8 @@ import React from "react";
 
 function Temp(props) {
     return (
-        <div className="wtt-cell bg-light">
-            <div>{props.temperatura}&#8451;</div>
+        <div className="temperatura d-flex align-items-center">
+            <div>{props.temperatura}&#176;C</div>
             <img src={props.src}></img>
         </div>
     )

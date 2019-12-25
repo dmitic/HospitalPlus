@@ -24,7 +24,7 @@ ol, ul{ list-style-type:none; }
 .categoryBoot a{
     color: brown;
     text-decoration: none;
-   
+    transition: all .2s;
 }
 .categoryBoot a:hover{
 font-weight: bold;
@@ -45,6 +45,22 @@ text-shadow: 4px 2px 4px rgb(230, 186, 146);
     box-shadow:0 0 10px rgb(79, 106, 112);
     cursor:pointer;
     border-radius:  3%;
+}
+
+
+
+.bg-see{
+
+    background-color: rgba(255, 255, 255, 0.61);
+}
+
+.border1{
+    border:3px solid white;
+}
+
+
+.border2{
+    border:3px solid gray;
 }
 
 

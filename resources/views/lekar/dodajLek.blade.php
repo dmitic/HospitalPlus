@@ -60,7 +60,7 @@
               </div>
               <div class="form-group row mb-2">
                 <div class="col-md-8 offset-md-2">
-                  <a href="/lekar/bolesti" class="btn btn-outline-secondary float-left">
+                  <a href="/lekar/lekovi" class="btn btn-outline-secondary float-left">
                     OTKAŽI
                   </a>
                   <button type="submit" class="btn btn-primary float-right">

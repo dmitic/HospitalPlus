@@ -34,7 +34,7 @@
 
                             <div class="col-md-6 m-2">
                                 <input id="datum" type="date" class="form-control" name="datum"
-                                    value="{{date("Y-m-d")}}" readonly>
+                                    value="{{date('Y-m-d')}}" readonly>
                             </div>
                         </div>
                         <div class="form-group row">

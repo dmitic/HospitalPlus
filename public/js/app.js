@@ -69656,7 +69656,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function Datum(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "wtt-cell bg-light"
+    className: "date d-flex h-50 align-items-end justify-content-end pr-2"
   }, new Intl.DateTimeFormat('sr-Latn', {
     year: 'numeric',
     month: 'long',
@@ -69805,21 +69805,21 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "wtt"
+        className: "col-md-4 text-center"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "wtt-cell"
-      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Date__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        className: "widget rounded"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "float-left m-2"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+        className: "grad"
+      }, "Beograd")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Date__WEBPACK_IMPORTED_MODULE_4__["default"], {
         datum: this.state.time.date
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Time__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        vreme: this.state.time.hours
       }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Temp__WEBPACK_IMPORTED_MODULE_3__["default"], {
         temperatura: Math.round(this.state.weather.temperature),
         src: this.state.weather.src
-      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "wtt-cell"
-      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "wtt-cell"
-      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Time__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        vreme: this.state.time.hours
-      }));
+      })));
     }
   }]);
 
@@ -69847,8 +69847,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function Temp(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "wtt-cell bg-light"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.temperatura, "\u2103"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "temperatura d-flex align-items-center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, props.temperatura, "\xB0C"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: props.src
   }));
 }
@@ -69872,7 +69872,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function Time(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "wtt-cell bg-light"
+    className: "vreme d-flex h-50 align-items-start justify-content-end pr-2"
   }, props.vreme);
 }
 
@@ -69898,8 +69898,8 @@ function Time(props) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\HospitalPlus\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\HospitalPlus\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\hospital\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\hospital\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

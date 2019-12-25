@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="{{ asset('/css/index.css') }}">
   @yield('dodajKorisnikaCss')
   @yield('dodajLoggedCss')
+  @yield('dodajIndex')
   <title>HospitalPlus</title>
 
 </head>

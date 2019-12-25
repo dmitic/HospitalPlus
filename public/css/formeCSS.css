@@ -54,7 +54,7 @@
 }
 
 .container-widgetbar{
-    max-width: 1800px !important;
+    overflow-x: hidden;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
