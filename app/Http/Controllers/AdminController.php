@@ -84,28 +84,55 @@ class AdminController extends Controller
         return redirect('/admin/svikorisnici')->withErrors(['poruka' => 'Korisnik je uspešno izmenjen!']);
     }
 
-    public function status(User $korisnik){
-        $pacijenti = Pacijent::all()->where('user_id', $korisnik->id); 
-        $rola = $korisnik->active;
+    // public function status(User $korisnik){
+    //     $pacijenti = Pacijent::all()->where('user_id', $korisnik->id); 
+    //     $rola = $korisnik->active;
 
+    //     try {
+    //         DB::beginTransaction();
+    //             foreach ($pacijenti as $pacijent){
+    //                 $pacijent->update(['user_id' => null]);
+    //             }
+    //             $korisnik->update(['active' => ! $rola]);
+    //         DB::commit();
+
+    //         if (count($pacijenti)) {
+    //             return back()->withErrors(['poruka' => 'Korisnik je aktiviran/deaktiviran, broj pacijenata kojima je bio izabrani lekar: ' . count($pacijenti)]);
+    //         } else {
+    //             return back()->withErrors(['poruka' => 'Korisnik je aktiviran/deaktiviran!']);
+    //         }
+            
+    //     } catch (\Exception $e) {
+    //         DB::rollback();
+    //             return redirect()->back()->withErrors(['poruka' => 'Došlo je do greške, pokušajte ponovo!']);
+    //     } 
+    // }
+    public function status(User $korisnik){
+         
         try {
             DB::beginTransaction();
-                foreach ($pacijenti as $pacijent){
-                    $pacijent->update(['user_id' => null]);
-                }
-                $korisnik->update(['active' => ! $rola]);
+                $brojPacijenata = $this->statusPacijenta($korisnik);
+                $korisnik->update(['active' => ! $korisnik->active]);
             DB::commit();
 
-            if (count($pacijenti)) {
-                return back()->withErrors(['poruka' => 'Korisnik je aktiviran/deaktiviran, broj pacijenata kojima je bio izabrani lekar: ' . count($pacijenti)]);
+            if ($brojPacijenata) {
+                return back()->withErrors(['poruka' => 'Korisnik je aktiviran/deaktiviran, broj pacijenata kojima je bio izabrani lekar: ' . $brojPacijenata]);
             } else {
                 return back()->withErrors(['poruka' => 'Korisnik je aktiviran/deaktiviran!']);
             }
-            
+
         } catch (\Exception $e) {
             DB::rollback();
                 return redirect()->back()->withErrors(['poruka' => 'Došlo je do greške, pokušajte ponovo!']);
         } 
+    }
+
+    public function statusPacijenta($korisnik){
+        $pacijenti = Pacijent::all()->where('user_id', $korisnik->id);
+        foreach ($pacijenti as $pacijent){
+            $pacijent->update(['user_id' => null]);
+        }
+        return count($pacijenti);
     }
 
     public function search(){
