@@ -12,7 +12,7 @@ class KartonController extends Controller
 {
     public function index()
     {
-        $kartoni = Karton::orderBy('broj_kartona')->paginate(10);
+        $kartoni = Karton::orderBy('broj_kartona')->paginate(5);
 
         // Kveri da vidi samo svoje pacijente - u principu ga ograničava da izvrši pregled nad tuđim pacijentom što je loše
         
@@ -20,9 +20,9 @@ class KartonController extends Controller
         //     ->whereHas('izabraniLekar', function($query) {
         //             $query->where('id', '=', \Auth::user()->id);
         //         })
-        //     ->orderBy('ime')->paginate(10);
+        //     ->orderBy('ime')->paginate(5);
         
-        $pacijenti = Pacijent::orderBy('created_at', 'desc')->paginate(10);
+        $pacijenti = Pacijent::orderBy('created_at', 'desc')->paginate(5);
 
         if (\Auth::user()->rola->naziv == 'Lekar')
             return view('lekar.kartoni', compact('kartoni', 'pacijenti'));
@@ -58,7 +58,7 @@ class KartonController extends Controller
 
     public function show(Karton $karton)
     {
-        $pregledi = Evidencija_lecenja::where('karton_id', $karton->id)->orderBy('datum_posete', 'desc')->paginate(10);
+        $pregledi = Evidencija_lecenja::where('karton_id', $karton->id)->orderBy('datum_posete', 'desc')->paginate(5);
 
         if (\Auth::user()->rola->naziv === 'Lekar')
             return view('lekar.karton', compact('karton', 'pregledi'));
@@ -108,7 +108,7 @@ class KartonController extends Controller
                 $query->where('broj_kartona', 'like', '%' . $str . '%');
             })
             ->orderBy('created_at', 'desc')
-            ->paginate(10);
+            ->paginate(5);
 
         if (\Auth::user()->rola->naziv === 'Lekar')
             return view('lekar.kartoni', compact('pacijenti'));

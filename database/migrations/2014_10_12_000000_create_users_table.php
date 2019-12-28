@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('email', 100)->unique();
             $table->string('username', 50);
             $table->string('password');
+            $table->boolean('active')->default(1);
             $table->unsignedBigInteger('uloga_id')->default(2);
             // $table->timestamp('email_verified_at')->nullable();
             // $table->rememberToken();

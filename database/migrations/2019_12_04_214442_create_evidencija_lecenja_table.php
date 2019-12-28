@@ -25,7 +25,8 @@ class CreateEvidencijaLecenjaTable extends Migration
             $table->timestamps();
 
             $table->foreign('karton_id')
-                    ->references('id')->on('kartoni');
+                    ->references('id')->on('kartoni')
+                    ->onDelete('cascade');
             $table->foreign('user_id')
                     ->references('id')->on('users');
             $table->foreign('bolest_id')

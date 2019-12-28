@@ -11,13 +11,13 @@ class PacijentController extends Controller
 
     public function index()
     {
-        $pacijenti = Pacijent::orderBy('created_at', 'desc')->paginate(10);
+        $pacijenti = Pacijent::orderBy('created_at', 'desc')->paginate(5);
         return view('sestra.sviPacijenti', compact('pacijenti'));
     }
 
     public function create()
     {
-        $lekari = User::all()->where('uloga_id', '2');
+        $lekari = User::all()->where('uloga_id', '2')->where('active', '1');
         return view('sestra.dodajPacijenta', compact('lekari'));
     }
 
@@ -49,7 +49,7 @@ class PacijentController extends Controller
 
     public function edit(Pacijent $pacijent)
     {
-        $lekari = User::all()->where('uloga_id', '2');
+        $lekari = User::all()->where('uloga_id', '2')->where('active', '1');
         return view('sestra.dodajPacijenta', compact('pacijent', 'lekari'));
     }
 
@@ -93,7 +93,7 @@ class PacijentController extends Controller
             ->orWhere('prezime', 'like', '%' . $str . '%')
             ->orWhere('lbo', 'like', '%' . $str . '%')
             ->orderBy('created_at', 'desc')
-            ->paginate(10);
+            ->paginate(5);
 
         return view('sestra.sviPacijenti', compact('pacijenti'));
     }

@@ -22,7 +22,6 @@
           @else
               <div class="card-header mb-4">DODAJ PACIJENTA</div>
           @endif
-        {{-- <div class="card-header mb-4">DODAJ PACIJENTA</div> --}}
 
         <div class="card-body">
             @if (isset($pacijent->id))
@@ -31,7 +30,6 @@
                 @else
                 <form action="{{ route('dodajPacijenta') }}" method="post">
                     @endif
-          {{-- <form method="POST" action="#"> --}}
             @csrf
 
             <div class="form-group row">
@@ -141,7 +139,7 @@
                 <label for="iz_lekar" class="col-md-4 col-form-label text-md-right">Izabrani lekar</label>
                 <div class="col-md-6 m-2">
                     <select name="iz_lekar" id="iz_lekar" class="form-control">
-                      
+                        <option value="">Nema izabranog lekara</option>
                         @foreach ($lekari as $lekar)
                         <option value="{{ $lekar->id }}" {{ old('iz_lekar') == $lekar->id ? "selected":"" }}
                             @if (isset($pacijent->izabraniLekar->id) && ($pacijent->izabraniLekar->id === $lekar->id))

@@ -9,7 +9,7 @@ class BolestController extends Controller
 {
     public function index()
     {
-        $bolesti = Bolest::orderBy('sifra_bolesti')->paginate(10);
+        $bolesti = Bolest::orderBy('sifra_bolesti')->paginate(5);
 
         if (\Auth::user()->rola->naziv == 'Lekar')
             return view('lekar.bolesti', compact('bolesti'));
@@ -75,7 +75,7 @@ class BolestController extends Controller
         $bolesti = Bolest::where('naziv', 'like', '%' . $str . '%')
             ->orWhere('sifra_bolesti', 'like', '%' . $str . '%')
             ->orderBy('sifra_bolesti')
-            ->paginate(10);
+            ->paginate(5);
 
         if (\Auth::user()->rola->naziv == 'Lekar')
             return view('lekar.bolesti', compact('bolesti'));

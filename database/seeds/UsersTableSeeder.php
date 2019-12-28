@@ -53,7 +53,7 @@ class UsersTableSeeder extends Seeder
                 'prezime' => 'Lockhart',
                 'telefon' => '12345678',
                 'email' => 'abby@sestra.com',
-                'username' => 'malik',
+                'username' => 'abby',
                 'password' => \Hash::make('12345678'),
                 'uloga_id' => '3'
             ],

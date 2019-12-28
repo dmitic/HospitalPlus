@@ -9,7 +9,7 @@ class LekController extends Controller
 {
     public function index()
     {
-        $lekovi = Lek::orderBy('naziv')->paginate(10);
+        $lekovi = Lek::orderBy('naziv')->paginate(5);
 
         if (\Auth::user()->rola->naziv == 'Lekar')
             return view('lekar.lekovi', compact('lekovi'));
@@ -83,7 +83,7 @@ class LekController extends Controller
 
         $lekovi = Lek::where('naziv', 'like', '%' . $str . '%')
             ->orderBy('naziv')
-            ->paginate(10);
+            ->paginate(5);
 
         if (\Auth::user()->rola->naziv === 'Lekar')
             return view('lekar.lekovi', compact('lekovi'));

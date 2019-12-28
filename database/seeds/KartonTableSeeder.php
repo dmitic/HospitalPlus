@@ -32,6 +32,26 @@ class KartonTableSeeder extends Seeder
                 'pacijent_id' => '4',
 
             ],
+            [
+                'broj_kartona' => 'm-12332',
+                'pacijent_id' => '5',
+
+            ],
+            [
+                'broj_kartona' => 's-3432',
+                'pacijent_id' => '6',
+
+            ],
+            [
+                'broj_kartona' => '345/2018',
+                'pacijent_id' => '7',
+
+            ],
+            [
+                'broj_kartona' => '234/2018',
+                'pacijent_id' => '8',
+
+            ],
             
        
         ]);

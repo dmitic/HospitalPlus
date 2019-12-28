@@ -62,11 +62,7 @@
             </tbody>
           </table>
           @else
-          <p><strong>
-              @if(isset($_GET['str']))
-              {{ $_GET['str'] }}
-              @endif
-            </strong> ne postoji u bazi!</p>
+          <p><strong>{{ $_GET['str'] ?? '' }}</strong> ne postoji u bazi!</p>
           @endif
         </div>
         <div class="row">

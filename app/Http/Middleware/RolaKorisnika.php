@@ -18,7 +18,6 @@ class RolaKorisnika
     {
 
         $korisnikRola = \Auth::user()->rola->naziv;
-        // dd($korisnikRola);
 
         if($korisnikRola == 'Admin')
             return redirect('/admin');

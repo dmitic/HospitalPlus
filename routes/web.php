@@ -25,8 +25,8 @@ Route::prefix('/admin')->middleware(['admin', 'auth'])->group(function()
     Route::get('/izmenikorisnika/{korisnik}', 'AdminController@edit')->name('izmeniKorisnika');
     Route::get('/pretragaKorisnika', 'AdminController@search');
     Route::put('/izmenikorisnika/{korisnik}', 'AdminController@update')->name('snimiKorisnika');
+    Route::put('/izmeniStatus/{korisnik}', 'AdminController@status')->name('statusKorisnika');
     Route::post('/dodajKorisnika', 'AdminController@store')->name('dodajKorisnika');
-    Route::delete('/obrisi/{korisnik}/delete', 'AdminController@destroy')->name('obrisiKorisnika');
     
 });
 

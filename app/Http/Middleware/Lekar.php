@@ -16,7 +16,6 @@ class Lekar
     public function handle($request, Closure $next)
     {
         $korisnikRola = \Auth::user()->rola->naziv;
-        // dd($korisnikRola);
 
         if(!isset($korisnikRola) || $korisnikRola !== 'Lekar'){
             return back();

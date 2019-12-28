@@ -62,7 +62,7 @@
                 <td>{{ $pacijent->ime }}</td>
                 <td>{{ $pacijent->prezime }}</td>
                 <td>{{ $pacijent->lbo }}</td>
-                <td>{{ $pacijent->izabraniLekar->ime }} {{ $pacijent->izabraniLekar->prezime }}</td>
+                <td>{{ $pacijent->izabraniLekar->ime ?? 'Nema izabranog lekara' }} {{ $pacijent->izabraniLekar->prezime ?? '' }}</td>
                 <td><a href="/sestra/prikazi/{{$pacijent->karton->id ?? ''}}" style="text-decoration:none;"
                     title="Detaljnije....">{{ $pacijent->karton->broj_kartona ?? ''}}</a></td>
                 <td><a href="{{ route('izmeniKarton', ['pacijent' => $pacijent->id]) }}" class="btn btn-primary"
@@ -72,11 +72,7 @@
             </tbody>
           </table>
           @else
-          <p><strong>
-              @if(isset($_GET['str']))
-              {{ $_GET['str'] }}
-              @endif
-            </strong> ne postoji u bazi!</p>
+          <p><strong>{{ $_GET['str'] ?? '' }}</strong> ne postoji u bazi!</p>
           @endif
         </div>
         <div class="row">

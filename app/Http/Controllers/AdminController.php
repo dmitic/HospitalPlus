@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Uloga;
+use App\Pacijent;
+use Illuminate\Support\Facades\DB;
+
 
 class AdminController extends Controller
 {
     public function index()
     {
-        $korisnici = User::with('rola')->orderBy('created_at', 'desc')->paginate(10);
+        $korisnici = User::with('rola')->orderBy('created_at', 'desc')->paginate(5);
         return view('admin.sviKorisnici', compact('korisnici'));
     }
 
@@ -44,7 +47,7 @@ class AdminController extends Controller
         $korisnik->password = $request->password;
         $korisnik->save();
 
-        return redirect('/admin/svikorisnici')->withErrors(['poruka' => 'Korisnik je uspešno dodat!']);
+        return redirect('/admin/svikorisnici')->withInput()->withErrors(['poruka' => 'Korisnik je uspešno dodat!']);
     }
 
     public function edit(User $korisnik)
@@ -81,11 +84,28 @@ class AdminController extends Controller
         return redirect('/admin/svikorisnici')->withErrors(['poruka' => 'Korisnik je uspešno izmenjen!']);
     }
 
-    public function destroy(User $korisnik)
-    {
-        $korisnik->delete();
-        return redirect('/admin/svikorisnici')
-                    ->withErrors(['poruka' => 'Korisnik je obrisan!']);
+    public function status(User $korisnik){
+        $pacijenti = Pacijent::all()->where('user_id', $korisnik->id); 
+        $rola = $korisnik->active;
+
+        try {
+            DB::beginTransaction();
+                foreach ($pacijenti as $pacijent){
+                    $pacijent->update(['user_id' => null]);
+                }
+                $korisnik->update(['active' => ! $rola]);
+            DB::commit();
+
+            if (count($pacijenti)) {
+                return back()->withErrors(['poruka' => 'Korisnik je aktiviran/deaktiviran, broj pacijenata kojima je bio izabrani lekar: ' . count($pacijenti)]);
+            } else {
+                return back()->withErrors(['poruka' => 'Korisnik je aktiviran/deaktiviran!']);
+            }
+            
+        } catch (\Exception $e) {
+            DB::rollback();
+                return redirect()->back()->withErrors(['poruka' => 'Došlo je do greške, pokušajte ponovo!']);
+        } 
     }
 
     public function search(){
@@ -101,7 +121,7 @@ class AdminController extends Controller
                 $query->where('naziv', 'like', '%' . $str . '%');
             })
             ->orderBy('created_at', 'desc')
-            ->paginate(10);
+            ->paginate(5);
 
         return view('admin.sviKorisnici', compact('korisnici'));
     }

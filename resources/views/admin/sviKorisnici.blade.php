@@ -48,8 +48,7 @@
                 <th>Telefon</th>
                 <th>Email</th>
                 <th>ID/Rola</th>
-
-
+                <th>Aktivan</th>
                 <th style="width:50px"></th>
                 <th style="width:50px"></th>
               </tr>
@@ -62,8 +61,7 @@
                 <th>Telefon</th>
                 <th>Email</th>
                 <th>ID/Rola</th>
-
-
+                <th>Aktivan</th>
                 <th style="width:50px"></th>
                 <th style="width:50px"></th>
               </tr>
@@ -78,14 +76,15 @@
                 <td>{{ $korisnik->telefon }}</td>
                 <td>{{ $korisnik->email }}</td>
                 <td>{{ $korisnik->rola->naziv }}</td>
+                <td>{{ $korisnik->active === 1 ? 'Aktivan' : 'Neaktivan' }}</td>
                 <td><a href="izmenikorisnika/{{ $korisnik->id }}" class="btn btn-primary"
                     title="Izmeni korisnika">Izmeni</a></td>
                 <td style="text-align:center; width:180px;">
-                  <form action="{{ route('obrisiKorisnika', ['korisnik' => $korisnik->id]) }}" method="post">
+                  <form action="{{ route('statusKorisnika', ['korisnik' => $korisnik->id]) }}" method="post">
                     @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger" onclick="return confirm('Da li si siguran da želiš da obrišeš?')"
-                      title="Obriši korisnika">Obriši</button>
+                    @method('PUT')
+                    <button class="btn btn-danger" onclick="return confirm('Da li si siguran da želiš da aktiviraš/deaktiviraš korisnika?')"
+                      title="Promeni status korisnika">{{ $korisnik->active === 1 ? 'Deaktiviraj' : 'Aktiviraj'}}</button>
                   </form>
                 </td>
               </tr>
@@ -94,11 +93,7 @@
             </tbody>
           </table>
           @else
-          <p><strong>
-              @if(isset($_GET['str']))
-              {{ $_GET['str'] }}
-              @endif
-            </strong> ne postoji u bazi!</p>
+          <p><strong>{{ $_GET['str'] ?? '' }}</strong> ne postoji u bazi!</p>
           @endif
         </div>
         <div class="col-md-12 row justify-content-center">
