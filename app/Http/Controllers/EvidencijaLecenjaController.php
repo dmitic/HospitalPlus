@@ -42,6 +42,8 @@ class EvidencijaLecenjaController extends Controller
                 $kolicina = Lek::where('id', request()->terapija)->first();
                 if (request()->kolicina > $kolicina->kolicina)
                     return redirect()->back()->withInput()->withErrors(['kolicina' => 'Prepisana količina ne može biti veća od trenutne količine na stanju!', 'terapija' => request()->terapija, 'dijagnoza' => request()->dijagnoza]);
+                elseif (request()->kolicina < 0)
+                    return redirect()->back()->withInput()->withErrors(['kolicina' => 'Prepisana količina ne može biti manja od nule!', 'terapija' => request()->terapija, 'dijagnoza' => request()->dijagnoza]);
                 else
                     $kolicina->update(['kolicina' => $kolicina->kolicina - request()->kolicina]);
 
