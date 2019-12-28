@@ -50,7 +50,8 @@
 
                 <div class="col-md-6 m-2">
                   <input id="kolicina" type="number" class="form-control @error('kolicina') is-invalid @enderror"
-                    name="kolicina" value="{{ $lek->kolicina ?? old('kolicina') }}" autofocus>
+                    name="kolicina"  autofocus>
+                    {{-- name="kolicina" value="{{ $lek->kolicina ?? old('kolicina') }}" autofocus> --}}
                   @error('kolicina')
                   <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>

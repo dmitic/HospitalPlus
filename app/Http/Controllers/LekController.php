@@ -29,7 +29,7 @@ class LekController extends Controller
     {
         $request->validate([
             'naziv' => 'required|max:50',
-            'kolicina' => 'required|max:11',
+            'kolicina' => 'required|min:0|integer|regex:/^[0-9]+/',
         ]);
 
         $lek = new Lek();
@@ -60,7 +60,7 @@ class LekController extends Controller
 
         $lek->update([
             'naziv' => request()->naziv,
-            'kolicina' => request()->kolicina,
+            'kolicina' => $lek->kolicina + request()->kolicina,
         ]);
 
         if (\Auth::user()->rola->naziv === 'Lekar')
