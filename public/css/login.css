@@ -64,6 +64,10 @@ body {
     font-size: 23px;
     font-weight: 600;
 }
+
+.ml-vreme {
+    margin-left: 500px !important;
+}
 .grad {
     font-size: 28px;
     font-weight: 700;

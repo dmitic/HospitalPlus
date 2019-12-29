@@ -69872,7 +69872,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function Time(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "vreme d-flex h-50 align-items-start justify-content-end pr-2"
+    className: "vreme d-flex h-50 align-items-start justify-content-start ml-5 ml-vreme"
   }, props.vreme);
 }
 
@@ -69898,8 +69898,8 @@ function Time(props) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\hospital\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\hospital\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\HospitalPlus\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\HospitalPlus\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
