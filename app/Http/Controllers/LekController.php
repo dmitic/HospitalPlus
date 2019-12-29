@@ -69,15 +69,6 @@ class LekController extends Controller
             return redirect('/sestra/lekovi')->withErrors(['poruka' => 'Podaci o leku su uspešno izmenjeni!']);
     }
 
-    public function destroy(Lek $lek)
-    {
-        $lek->delete();
-        if (\Auth::user()->rola->naziv === 'Lekar')
-            return redirect('/lekar/lekovi')->withErrors(['poruka' => 'Lek je obrisan!']);
-        if (\Auth::user()->rola->naziv === 'Sestra')
-            return redirect('/sestra/lekovi')->withErrors(['poruka' => 'Lek je obrisan!']);
-    }
-
     public function search(){
         $str = htmlspecialchars($_GET['str'] ?? ''); 
 

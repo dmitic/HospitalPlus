@@ -61,6 +61,7 @@ class PacijentController extends Controller
             'telefon' => 'required|max:20',
             'adresa' => 'required|max:100',
             'grad' => 'required|max:50',
+            'lbo' => 'required|max:11',
         ]);
 
         $pacijent->update([

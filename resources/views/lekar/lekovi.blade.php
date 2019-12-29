@@ -44,14 +44,12 @@
                 <th>Naziv</th>
                 <th>Količina</th>
                 <th style="width:50px"></th>
-                <th style="width:50px"></th>
               </tr>
             </thead>
             <tfoot>
               <tr>
                 <th>Naziv</th>
                 <th>Količina</th>
-                <th style="width:50px"></th>
                 <th style="width:50px"></th>
               </tr>
             </tfoot>
@@ -62,15 +60,7 @@
                 <td>{{ $lek->kolicina }} komada</td>
                 <td><a href="{{ route('izmeniLekLekar', ['lek' => $lek->id]) }}" class="btn btn-primary"
                     title="Izmeni...">Izmeni</a></td>
-                <td style="text-align:center; width:180px;">
-                  <form action="{{ route('obrisiLekLekar', ['lek' => $lek->id]) }}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger" onclick="return confirm('Da li si siguran da želiš da obrišeš?')"
-                      title="Obriši lek">Obriši</button>
-                  </form>
-                </td>
-                @endforeach
+                 @endforeach
 
               </tr>
 

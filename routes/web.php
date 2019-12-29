@@ -49,7 +49,6 @@ Route::prefix('/lekar')->middleware(['lekar', 'auth'])->group(function()
     Route::get('/izmenilek/{lek}', 'LekController@edit')->name('izmeniLekLekar');
     Route::put('/izmenilek/{lek}', 'LekController@update')->name('snimiLekLekar');
     Route::post('/dodajLek', 'LekController@store')->name('dodajLekLekar');
-    Route::delete('/lekovi/{lek}/delete','LekController@destroy')->name('obrisiLekLekar');
 
     // Kartoni
     Route::get('/dodajKarton','KartonController@create');
@@ -63,7 +62,6 @@ Route::prefix('/lekar')->middleware(['lekar', 'auth'])->group(function()
     // evidencije lečenja
     Route::get('/dodajpregled/{karton}','EvidencijaLecenjaController@create')->name('dodajPregled');
     Route::post('/snimipregled','EvidencijaLecenjaController@store')->name('snimipregled');
-    // Route::post('/snimipregled/{evlec}','EvidencijaLecenjaController@store')->name('snimipregled');
     Route::get('/prikazi/{karton}','KartonController@show');
     
 });
@@ -96,7 +94,6 @@ Route::prefix('/sestra')->middleware(['sestra', 'auth'])->group(function()
     Route::get('/izmenilek/{lek}', 'LekController@edit')->name('izmeniLek');
     Route::put('/izmenilek/{lek}', 'LekController@update')->name('snimiLek');
     Route::post('/dodajLek', 'LekController@store')->name('dodajLek');
-    Route::delete('/lekovi/{lek}/delete','LekController@destroy')->name('obrisiLek');
 
     // Kartoni
     Route::get('/kartoni','KartonController@index');
