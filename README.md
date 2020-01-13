@@ -1,7 +1,7 @@
 # *Web aplikacija - Bolnica Hospital Plus*
 
 Projekat predstavlja Web aplikaciju za bolnicu Hospital Plus koja radnicima omogućava lakši pristup informacijama o pacijentima kao i osnovne operacije manipulacije podacima.
-Aplikacija je realizovana tako da korisnici sistema: admin, asistent i lekar mogu da kreiraju, ažuriraju i brišu informacije u skladu sa svojim privilegama.
+Aplikacija je realizovana tako da korisnici sistema: admin, asistent i lekar mogu da kreiraju, ažuriraju i brišu informacije u skladu sa svojim privilegijama.
 Učesnici u ovom sistemu su admin i korisnik sistema. Korisnik može biti asistent ili lekar.
 Admin je predefinisani korisnik koji je kreiran, direktno u bazi podataka, i ima sva prava nad podacima i delovima aplikacije. Da bi se pristupilo aplikaciji potrebno je da se korisnik prijavi.
 Nakon što korisnik prođe proces autentifikacije i autorizacije odobrava mu se pristup podacima za koje ima dozvolu.

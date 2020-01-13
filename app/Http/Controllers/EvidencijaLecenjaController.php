@@ -14,7 +14,7 @@ class EvidencijaLecenjaController extends Controller
     public function create(Karton $karton)
     {
         $dijagnoze = Bolest::all();
-        $lekovi = Lek::all();
+        $lekovi = Lek::where('kolicina', '>', 0)->get();
         return view('lekar.dodajPregled', compact('karton', 'dijagnoze', 'lekovi'));
     }
 
